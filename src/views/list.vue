@@ -742,6 +742,7 @@ import axios from 'axios';
       const item = filesList.value[i]
       if(checkedRowKeysCopy.indexOf(item.id) !== -1) {
         if(item.kind === 'drive#file') {
+        console.log(item);
           downFileList.value.push({
             id: item.id,
             name: item.name,
