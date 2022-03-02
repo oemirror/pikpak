@@ -770,9 +770,8 @@ import axios from 'axios';
       getFile(downFileList.value[0].id)
         .then(async res => {
           console.log('000000000000')
-          console.log(res)
+          console.log(res.get('data'))
           
-          console.log(res.data.file_extension)
           const data:any = downFileList.value.shift()
           console.log(data)
           
