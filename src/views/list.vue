@@ -579,6 +579,8 @@ import axios from 'axios';
       }
     })
       .then(res => {
+        console.log('getFile ================')
+        console.log(res)
         return res
       })
   }
@@ -742,6 +744,8 @@ import axios from 'axios';
       const item = filesList.value[i]
       
       if(checkedRowKeysCopy.indexOf(item.id) !== -1) {
+        console.log('getAllFile !!!!!!!!!!!!!!!!!!!')
+        console.log(item)
         if(item.kind === 'drive#file' ) {
           downFileList.value.push({
             id: item.id,
@@ -758,7 +762,7 @@ import axios from 'axios';
     nRef.value.content = '共获取到' + downFileList.value.length + '个文件'
   }
   const aria2All = async () => {
-    console.log('111111111111111111111')
+    console.log('aria2All   111111111111111111111')
     if(allLoding.value) {
       return false
     }
@@ -770,6 +774,7 @@ import axios from 'axios';
       getFile(downFileList.value[0].id)
         .then(async res => {
           const data:any = downFileList.value.shift()
+          console.log('postOne 222222222222222222222')
           console.log(data)
           await aria2Post(res, data.parent)
           if(nRef.value?.content) {
