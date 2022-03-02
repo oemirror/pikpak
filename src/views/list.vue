@@ -743,9 +743,9 @@ import axios from 'axios';
       console.log(item)
       if(checkedRowKeysCopy.indexOf(item.id) !== -1) {
         if(item.kind === 'drive#file' 
-        && item.file_extension.toLowerCase() != ".mht" 
-        && item.file_extension.toLowerCase() != ".url" 
-        && item.file_extension.toLowerCase() != ".torrent"  ) {
+        && item.file_extension.toLowerCase() != '.mht'
+        && item.file_extension.toLowerCase() != '.url' 
+        && item.file_extension.toLowerCase() != '.torrent'  ) {
 
           downFileList.value.push({
             id: item.id,
