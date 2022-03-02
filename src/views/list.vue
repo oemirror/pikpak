@@ -742,8 +742,6 @@ import axios from 'axios';
       const item = filesList.value[i]
       
       if(checkedRowKeysCopy.indexOf(item.id) !== -1) {
-      console.log('############')
-        console.log(item)
         if(item.kind === 'drive#file' ) {
           downFileList.value.push({
             id: item.id,
@@ -772,8 +770,8 @@ import axios from 'axios';
       getFile(downFileList.value[0].id)
         .then(async res => {
           console.log('000000000000')
-         // var d = res['data'] ;
-         // console.log(d.value[0])
+          var d = res['data'] ;
+          console.log(d[0])
          // var fe = d["file_extension"] ;
          // console.log(fe)
           var file_extension = ''; // res['data'].file_extension;
