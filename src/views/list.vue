@@ -1021,16 +1021,21 @@ import axios from 'axios';
       if(item.kind === 'drive#folder') {
          await getFloderFile(item.id, '', (parent ? (parent + '/') :  '') + item.name)
       } else {
-        console.log('$$$$$$$$$$$$$$$$$$$$$$')
-        console.log(item)
-        downFileList.value.push({
-          name: item.name,
-          id: item.id,
-          parent: parent || '',
-          size: item.size,
-          hash: item.hash,
-          file_extension: item.file_extension
-        })
+        if (item.file_extension.toLowerCase() != '.chm' 
+          && item.file_extension.toLowerCase() != '.mht'
+          && item.file_extension.toLowerCase() != '.url'
+          && item.file_extension.toLowerCase() != '.torrent'
+          ){        
+          
+          downFileList.value.push({
+            name: item.name,
+            id: item.id,
+            parent: parent || '',
+            size: item.size,
+            hash: item.hash,
+            file_extension: item.file_extension
+          })
+        }
       }
     }
     return 1
