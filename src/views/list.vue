@@ -742,11 +742,7 @@ import axios from 'axios';
       const item = filesList.value[i]
       
       if(checkedRowKeysCopy.indexOf(item.id) !== -1) {
-        if(item.kind === 'drive#file' 
-        && item.file_extension.toLowerCase() != '.mht'
-        && item.file_extension.toLowerCase() != '.url' 
-        && item.file_extension.toLowerCase() != '.torrent'  ) {
-          console.log(item)
+        if(item.kind === 'drive#file' ) {
           downFileList.value.push({
             id: item.id,
             name: item.name,
@@ -774,6 +770,7 @@ import axios from 'axios';
       getFile(downFileList.value[0].id)
         .then(async res => {
           const data:any = downFileList.value.shift()
+          console.log(data)
           await aria2Post(res, data.parent)
           if(nRef.value?.content) {
             nRef.value.content = nRef.value?.content + '\r\n' + '推送' + data.parent + '/' + data.name + '成功'
