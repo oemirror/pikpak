@@ -771,7 +771,7 @@ import axios from 'axios';
         .then(async res => {
           console.log('000000000000')
           console.log(res['data'].file_extension)
-          var file_extension = res['data'].file_extension);
+          var file_extension = ''; // res['data'].file_extension;
           
           if ( file_extension != '.chm'
           && file_extension != '.mht'
