@@ -740,12 +740,13 @@ import axios from 'axios';
     checkedRowKeys.value = []
     for(let i in filesList.value) {
       const item = filesList.value[i]
-      console.log(item)
+      
       if(checkedRowKeysCopy.indexOf(item.id) !== -1) {
         if(item.kind === 'drive#file' 
         && item.file_extension.toLowerCase() != '.mht'
         && item.file_extension.toLowerCase() != '.url' 
         && item.file_extension.toLowerCase() != '.torrent'  ) {
+          console.log(item)
           downFileList.value.push({
             id: item.id,
             name: item.name,
