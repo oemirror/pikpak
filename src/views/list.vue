@@ -579,8 +579,6 @@ import axios from 'axios';
       }
     })
       .then(res => {
-        console.log('getFile ================')
-        console.log(res)
         return res
       })
   }
@@ -744,8 +742,6 @@ import axios from 'axios';
       const item = filesList.value[i]
       
       if(checkedRowKeysCopy.indexOf(item.id) !== -1) {
-        console.log('getAllFile !!!!!!!!!!!!!!!!!!!')
-        console.log(item)
         if(item.kind === 'drive#file' ) {
           downFileList.value.push({
             id: item.id,
@@ -762,7 +758,6 @@ import axios from 'axios';
     nRef.value.content = '共获取到' + downFileList.value.length + '个文件'
   }
   const aria2All = async () => {
-    console.log('aria2All   111111111111111111111')
     if(allLoding.value) {
       return false
     }
@@ -773,22 +768,29 @@ import axios from 'axios';
     const postOne =  () => {
       getFile(downFileList.value[0].id)
         .then(async res => {
-          const data:any = downFileList.value.shift()
           console.log('postOne 222222222222222222222')
-          console.log(data)
-          await aria2Post(res, data.parent)
-          if(nRef.value?.content) {
-            nRef.value.content = nRef.value?.content + '\r\n' + '推送' + data.parent + '/' + data.name + '成功'
-          }
-          if(downFileList.value.length) {
-            setTimeout(() => {
-              postOne()
-            }, 3000)
-          } else {
-            setTimeout(() => {
-              nRef.value?.destroy()
-              allLoding.value = false
-            }, 1000);
+          console.log(res)
+          if (res.data.file_extension.toLowerCase != '.chm' 
+          && res.data.file_extension.toLowerCase != '.mht'
+          && res.data.file_extension.toLowerCase != '.url'
+          && res.data.file_extension.toLowerCase != '.torrent'
+          ){          
+            const data:any = downFileList.value.shift()
+
+            await aria2Post(res, data.parent)
+            if(nRef.value?.content) {
+              nRef.value.content = nRef.value?.content + '\r\n' + '推送' + data.parent + '/' + data.name + '成功'
+            }
+            if(downFileList.value.length) {
+              setTimeout(() => {
+                postOne()
+              }, 3000)
+            } else {
+              setTimeout(() => {
+                nRef.value?.destroy()
+                allLoding.value = false
+              }, 1000);
+            }
           }
         })
     }
