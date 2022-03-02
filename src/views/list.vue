@@ -1019,7 +1019,8 @@ import axios from 'axios';
           id: item.id,
           parent: parent || '',
           size: item.size,
-          hash: item.hash
+          hash: item.hash,
+          file_extension: item.file_extension
         })
       }
     }
