@@ -770,11 +770,7 @@ import axios from 'axios';
         .then(async res => {
           console.log('postOne 222222222222222222222')
           console.log(res)
-          if (res.data.file_extension.toLowerCase != '.chm' 
-          && res.data.file_extension.toLowerCase != '.mht'
-          && res.data.file_extension.toLowerCase != '.url'
-          && res.data.file_extension.toLowerCase != '.torrent'
-          ){          
+     
             const data:any = downFileList.value.shift()
 
             await aria2Post(res, data.parent)
@@ -791,7 +787,7 @@ import axios from 'axios';
                 allLoding.value = false
               }, 1000);
             }
-          }
+          
         })
     }
     postOne()
