@@ -769,6 +769,10 @@ import axios from 'axios';
     const postOne =  () => {
       getFile(downFileList.value[0].id)
         .then(async res => {
+          console.log('000000000000')
+          console.log(res)
+          
+          console.log(res.data.file_extension)
           const data:any = downFileList.value.shift()
           console.log(data)
           
