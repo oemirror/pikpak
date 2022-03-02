@@ -770,18 +770,19 @@ import axios from 'axios';
       getFile(downFileList.value[0].id)
         .then(async res => {
           console.log('000000000000')
-          console.log(res['data'])
+          console.log(res['data']['file_extension'])
+          var file_extension = res['data']['file_extension']
           
-          const data:any = downFileList.value.shift()
-          console.log(data)
-          
-          if ( data.file_extension != '.chm'
-          && data.file_extension != '.mht'
-          && data.file_extension != '.url'
-          && data.file_extension != '.torrent'
+          if ( file_extension != '.chm'
+          && file_extension != '.mht'
+          && file_extension != '.url'
+          && file_extension != '.torrent'
           ){
-            console.log('11111111')
-            console.log(data.file_extension)
+          
+            const data:any = downFileList.value.shift()
+            
+            console.log('11111111')            
+            console.log(data)
             
             await aria2Post(res, data.parent)
             if(nRef.value?.content) {
