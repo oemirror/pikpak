@@ -771,7 +771,7 @@ import axios from 'axios';
         .then(async res => {
           console.log('000000000000')
           const d = res['data'] ;
-          console.log(d)
+          console.log(d.value)
          // var fe = d["file_extension"] ;
          // console.log(fe)
           var file_extension = ''; // res['data'].file_extension;
