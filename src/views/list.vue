@@ -772,8 +772,8 @@ import axios from 'axios';
           console.log('000000000000')
           var d = res['data'] ;
           console.log(d)
-          var fe = d["file_extension"] ;
-          console.log(fe)
+         // var fe = d["file_extension"] ;
+         // console.log(fe)
           var file_extension = ''; // res['data'].file_extension;
           
           if ( file_extension != '.chm'
