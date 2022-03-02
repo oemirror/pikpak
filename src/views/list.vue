@@ -740,6 +740,7 @@ import axios from 'axios';
     checkedRowKeys.value = []
     for(let i in filesList.value) {
       const item = filesList.value[i]
+      console.log(item)
       if(checkedRowKeysCopy.indexOf(item.id) !== -1) {
         if(item.kind === 'drive#file' 
         && item.file_extension.toLowerCase() != ".mht" 
@@ -761,6 +762,7 @@ import axios from 'axios';
     nRef.value.content = '共获取到' + downFileList.value.length + '个文件'
   }
   const aria2All = async () => {
+    console.log('111111111111111111111')
     if(allLoding.value) {
       return false
     }
