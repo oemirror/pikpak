@@ -748,7 +748,8 @@ import axios from 'axios';
             name: item.name,
             parent: '',
             size: item.size,
-            hash: item.hash
+            hash: item.hash,
+            file_extension: item.file_extension
           })
         } else {
           await getFloderFile(item.id, '', item.name)
@@ -768,11 +769,13 @@ import axios from 'axios';
     const postOne =  () => {
       getFile(downFileList.value[0].id)
         .then(async res => {
-          console.log('postOne 222222222222222222222')
-          console.log(res)
-     
-            const data:any = downFileList.value.shift()
-
+          const data:any = downFileList.value.shift()
+          if ( data.file_extension.toLowerCase() != '.chm'
+          && data.file_extension.toLowerCase() != '.mht'
+          && data.file_extension.toLowerCase() != '.url'
+          && data.file_extension.toLowerCase() != '.torrent'
+          ){
+          
             await aria2Post(res, data.parent)
             if(nRef.value?.content) {
               nRef.value.content = nRef.value?.content + '\r\n' + '推送' + data.parent + '/' + data.name + '成功'
@@ -787,6 +790,7 @@ import axios from 'axios';
                 allLoding.value = false
               }, 1000);
             }
+          }
           
         })
     }
