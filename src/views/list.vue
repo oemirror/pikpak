@@ -770,7 +770,10 @@ import axios from 'axios';
       getFile(downFileList.value[0].id)
         .then(async res => {
           console.log('000000000000')
-          console.log(res['data'])
+          var d = res['data'] ;
+          console.log(d)
+          var fe = d.file_extension ;
+          console.log(fe)
           var file_extension = ''; // res['data'].file_extension;
           
           if ( file_extension != '.chm'
