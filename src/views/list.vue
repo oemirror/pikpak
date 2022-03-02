@@ -1021,6 +1021,8 @@ import axios from 'axios';
       if(item.kind === 'drive#folder') {
          await getFloderFile(item.id, '', (parent ? (parent + '/') :  '') + item.name)
       } else {
+        console.log('$$$$$$$$$$$$$$$$$$$$$$')
+        console.log(item)
         downFileList.value.push({
           name: item.name,
           id: item.id,
