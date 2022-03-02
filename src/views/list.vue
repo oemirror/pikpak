@@ -502,7 +502,7 @@ import axios from 'axios';
         thumbnail_size: 'SIZE_LARGE',
         with_audit: true,
         page_token: pageToken.value || undefined,
-        limit: 100,
+        limit: 50,
         filters: filters
       }
     })
