@@ -746,7 +746,6 @@ import axios from 'axios';
         && item.file_extension.toLowerCase() != '.mht'
         && item.file_extension.toLowerCase() != '.url' 
         && item.file_extension.toLowerCase() != '.torrent'  ) {
-
           downFileList.value.push({
             id: item.id,
             name: item.name,
