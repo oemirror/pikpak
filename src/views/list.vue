@@ -773,8 +773,8 @@ import axios from 'axios';
           
             const data:any = downFileList.value.shift()
             
-            //console.log('11111111')            
-            //console.log(data)
+            console.log('11111111')            
+            console.log(data)
             
             await aria2Post(res, data.parent)
             if(nRef.value?.content) {
