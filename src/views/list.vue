@@ -769,23 +769,12 @@ import axios from 'axios';
     const postOne =  () => {
       getFile(downFileList.value[0].id)
         .then(async res => {
-          console.log('000000000000')
-          const d = res['data'] ;
-          console.log(d)
-         // var fe = d["file_extension"] ;
-         // console.log(fe)
-          var file_extension = ''; // res['data'].file_extension;
           
-          if ( file_extension != '.chm'
-          && file_extension != '.mht'
-          && file_extension != '.url'
-          && file_extension != '.torrent'
-          ){
           
             const data:any = downFileList.value.shift()
             
-            console.log('11111111')            
-            console.log(data)
+            //console.log('11111111')            
+            //console.log(data)
             
             await aria2Post(res, data.parent)
             if(nRef.value?.content) {
@@ -801,7 +790,7 @@ import axios from 'axios';
                 allLoding.value = false
               }, 1000);
             }
-          }
+          
           
         })
     }
